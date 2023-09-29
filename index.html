@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./style.css"  />
+
+  <title>Novo usuario - Sujeito Programador</title>
+</head>
+<body>
+
+  <div class="container">
+    <section class="header">
+      <h2>Nova conta</h2>
+    </section>
+
+    <form id="form" class="form">
+      <div class="form-content">
+        <label for="username">Nome do usuário</label>
+        <input
+          type="text"
+          id="username"
+          placeholder="Digite o nome do usuario..."
+        />
+        <a>Aqui vai a mensagem de erro....</a>
+      </div>
+
+      <div class="form-content">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="Digite o seu email..."
+        />
+        <a>Aqui vai a mensagem de erro....</a>
+      </div>
+
+      <div class="double">
+      <div class="form-content">
+        <label for="CEP">CEP</label>
+        <input
+          type="CEP"
+          id="CEP"
+          placeholder="Digite o seu CEP..."
+          maxlength="8"
+          minlength="8"
+        />
+        <a>Aqui vai a mensagem de erro....</a>
+      </div>
+      <div class="form-content">
+        <label for="region">Estado</label>
+        <select
+              class="form-select"
+              id="region"
+              
+              required
+              data-input
+            >
+              <option selected>Estado</option>
+              <option value="AC">Acre</option>
+              <option value="AL">Alagoas</option>
+              <option value="AP">Amapá</option>
+              <option value="AM">Amazonas</option>
+              <option value="BA">Bahia</option>
+              <option value="CE">Ceará</option>
+              <option value="DF">Distrito Federal</option>
+              <option value="ES">Espírito Santo</option>
+              <option value="GO">Goiás</option>
+              <option value="MA">Maranhão</option>
+              <option value="MT">Mato Grosso</option>
+              <option value="MS">Mato Grosso do Sul</option>
+              <option value="MG">Minas Gerais</option>
+              <option value="PA">Pará</option>
+              <option value="PB">Paraíba</option>
+              <option value="PR">Paraná</option>
+              <option value="PE">Pernambuco</option>
+              <option value="PI">Piauí</option>
+              <option value="RJ">Rio de Janeiro</option>
+              <option value="RN">Rio Grande do Norte</option>
+              <option value="RS">Rio Grande do Sul</option>
+              <option value="RO">Rondônia</option>
+              <option value="RR">Roraima</option>
+              <option value="SC">Santa Catarina</option>
+              <option value="SP">São Paulo</option>
+              <option value="SE">Sergipe</option>
+              <option value="TO">Tocantins</option>
+            </select>
+      </div>
+    </div>
+    <div class="form-content">
+      <label for="cidade">Cidade</label>
+      <input
+        type="cidade"
+        id="cidade"
+        placeholder="cidade"
+        
+      />
+      <a>Aqui vai a mensagem de erro....</a>
+    </div>
+      <div  class="double">
+        <div class="form-content ruacasa">
+          <label for="rua">Rua</label>
+          <input
+            type="rua"
+            id="rua"
+            placeholder="Rua"
+            
+          />
+          <a>Aqui vai a mensagem de erro....</a>
+        </div>
+        <div class="form-content numerocasa">
+          <label for="numero">Numero</label>
+          <input
+            type="numero"
+            id="numero"
+            placeholder="Nº"
+          />
+          <a>Aqui vai a mensagem de erro....</a>
+        </div>
+      </div>
+      <div class="double">  
+        <div class="form-content">
+          <label for="bairro">Bairro</label>
+          <input
+            type="bairro"
+            id="bairro"
+            placeholder="Bairro"
+            
+          />
+          <a>Aqui vai a mensagem de erro....</a>
+        </div>
+        <div class="form-content">
+          <label for="complemento">Complemento</label>
+          <input
+            type="complemento"
+            id="complemento"
+            placeholder="Digite o complemento..."
+          />
+          <a>Aqui vai a mensagem de erro....</a>
+        </div>
+      </div>
+      <div class="form-content">
+        <label for="password">Senha</label>
+        <input
+          type="password"
+          id="password"
+          placeholder="Digite sua senha..."
+        />
+        <a>Aqui vai a mensagem de erro....</a>
+      </div>
+
+      <div class="form-content">
+        <label for="password-confirmation">Confirmação de senha</label>
+        <input
+          type="password"
+          id="password-confirmation"
+          placeholder="Digite sua senha novamente..."
+        />
+        <a>Aqui vai a mensagem de erro....</a>
+      </div>
+
+      <button type="submit">Cadastrar</button>
+
+    </form>
+
+  </div>
+  
+
+  <script src="./script.js"></script>
+</body>
+</html>
