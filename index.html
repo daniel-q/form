@@ -54,13 +54,14 @@
         <a>Aqui vai a mensagem de erro....</a>
       </div>
       <div class="form-content">
-        <label for="region">Estado</label>
+        <label for="region" class="regiao">Estado</label>
         <select
-              class="form-select"
+              class="form-select regiao"
               id="region"
               
               required
               data-input
+              disabled
             >
               <option selected>Estado</option>
               <option value="AC">Acre</option>
@@ -99,7 +100,7 @@
         type="cidade"
         id="cidade"
         placeholder="cidade"
-        
+        disabled
       />
       <a>Aqui vai a mensagem de erro....</a>
     </div>

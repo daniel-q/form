@@ -1,35 +1,27 @@
-/*import mysql from 'mysql2'
-import dotenv from 'dotenv'
-import pkg from 'bcryptjs';
-import express from 'express';
-import bodyParser from 'body-parser'
-const {genSaltSync,  hashSync } = pkg
-*/
 const express = require('express');
 const mysql = require('mysql2');
-const bodyParser = require('body-parser')
 const dotenv = require('dotenv')
 const bcrypt = require('bcryptjs')
 const cors = require('cors');
 
-
+//Importa os dados do sistema
+dotenv.config()
 
 
 const app = express();
-app.use(cors())
+app.use(cors()) // Abilita a transmição de informações entre origens
+app.use(express.json()); // Abilita o uso de Json
 
-dotenv.config()
 
-app.use(express.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-
+//Conecção com o mysql
 var connection = mysql.createConnection({
     host: process.env.MYSQL_HOST,
     user: process.env.MYSQL_USER,
     password: process.env.MYSQL_PASSWORD,
     database: process.env.MYSQL_DATABASE
 })
+
+//teste de conecção
 
 connection.connect((err) => {
     if (err) {
@@ -62,7 +54,7 @@ app.post('/adicionar-usuario', (req, res) => {
 
 
 
-
+//define a porta a ser escutada
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {

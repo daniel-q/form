@@ -12,7 +12,8 @@ CREATE TABLE formulario2 (
     rua VARCHAR(255) NOT NULL,
     numero VARCHAR(255) NOT NULL,
     complemento VARCHAR(255),
-    created TIMESTAMP NOT NULL DEFAULT NOW()
+    created TIMESTAMP NOT NULL DEFAULT NOW(),
+    UNIQUE (email)
 );
 
 

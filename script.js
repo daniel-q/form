@@ -29,14 +29,44 @@ CEP.addEventListener("keypress", (e) => {
   }
 });
 
+CEP.addEventListener("paste", (e) => {
+  e.preventDefault()
+  let paste = e.clipboardData.getData("text");
+  //let matches = paste.match(/(\d+)/);
+  matches = paste.replace(/\D/g,'')
+  console.log(matches)
+  if(matches !== ''){
+    if (matches.length > 8){
+      CEP.value = matches.slice(0,8)
+    }
+    else{
+      CEP.value = matches
+    }
+    
+  }
+  if(CEP.value.length === 8){
+    getAddress(CEP.value)
+  }
+  else{
+    limpaEndereco()
+  }
+
+  
+});
+
 // Evento to get address
 CEP.addEventListener("keyup", (e) => {
   const inputValue = e.target.value;
+  
 
   //   Check if we have a CEP
   if (inputValue.length === 8) {
     getAddress(inputValue);
   }
+  else{
+    limpaEndereco()
+  }
+  
 });
 
 const getAddress = async (cep) => {
@@ -51,10 +81,10 @@ const getAddress = async (cep) => {
   console.log(data.erro);
 
   // Show error and reset form
-  if (data.erro === "true") {
+  if (data.erro === true) {
     
 
-    addressForm.reset();
+    
     
     errorInput(CEP,"CEP Inválido, tente novamente.");
     return;
@@ -67,10 +97,11 @@ const getAddress = async (cep) => {
   cidade.value = data.localidade;
   bairro.value = data.bairro;
   estado.value = data.uf;
-  
+  const formItem = CEP.parentElement;
+  formItem.className = "form-content"
   if(rua.value==''){
 
-    rua.value = "Indeterminado"
+    rua.value = "Indeterminada"
   }
   if(bairro.value==''){
     bairro.value = "Indeterminado"
@@ -122,6 +153,31 @@ email.addEventListener("blur", () => {
 
 username.addEventListener("blur", () => {
   checkInputUsername();
+})
+
+CEP.addEventListener("blur", (e) => {
+  const inputValue = e.target.value;
+  
+  //   Check if we have a CEP
+  if (inputValue.length === 8) {
+    getAddress(inputValue);
+    
+  }
+  else{
+    errorInput(CEP,"CEP invalido")
+  }
+})
+
+rua.addEventListener("blur", () => {
+  checkInputRua();
+})
+
+bairro.addEventListener("blur", () => {
+  checkInputBairro();
+})
+
+numero.addEventListener("blur", () => {
+  checkInputNumero();
 })
 
 
@@ -188,6 +244,9 @@ function checkInputCEP(){
   if(cepvalue==""){
     errorInput(CEP,"O CEP é obrigatório")
   }
+  else if(cepvalue.length !==8){
+    errorInput(CEP,"CEP invalido")
+  }
   else{
     const formItem = CEP.parentElement;
     formItem.className = "form-content"
@@ -198,7 +257,7 @@ function checkInputCEP(){
 
 function checkInputEstado(){
   const estadovalue = estado.value
-  if(estadovalue==""){
+  if(estadovalue=="Estado"){
     errorInput(estado,"O Estado é obrigatório")
   }
   else{
@@ -306,3 +365,9 @@ function errorInput(input, message){
 
 }
 
+function limpaEndereco(){
+  rua.value = ''
+  cidade.value = ''
+  bairro.value = ''
+  estado.value = 'Estado'
+}
